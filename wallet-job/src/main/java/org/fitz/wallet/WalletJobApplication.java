@@ -1,13 +1,17 @@
 package org.fitz.wallet;
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
+
 /**
  * Hello world!
- *
  */
-public class WalletJobApplication
-{
-    public static void main( String[] args )
+@SpringBootApplication
+@EnableScheduling
+public class WalletJobApplication {
+    public static void main(String[] args)
     {
-        System.out.println( "Hello World!" );
+        SpringApplication.run(WalletJobApplication.class, args);
     }
 }
