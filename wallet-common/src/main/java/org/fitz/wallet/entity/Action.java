@@ -11,37 +11,36 @@ import java.time.LocalDateTime;
 
 /**
  * <p>
- * 持仓表
+ * 操作记录表
  * </p>
  *
  * @author fitz
  * @since 2022-02-19
  */
-@ApiModel(value = "Asset对象", description = "持仓表")
-public class Asset implements Serializable {
+@ApiModel(value = "Action对象", description = "操作记录表")
+public class Action implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty("主键")
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
-    @ApiModelProperty("关联标的表的id")
+    @ApiModelProperty("标的编号")
     private String targetCode;
 
-    @ApiModelProperty("关联账户表id")
-    private Long accountId;
+    @ApiModelProperty("标的名称")
+    private String targetName;
 
-    @ApiModelProperty("持仓数量")
+    @ApiModelProperty("1买入；2卖出")
+    private Integer actionType;
+
+    @ApiModelProperty("操作数量")
     private BigDecimal num;
 
-    @ApiModelProperty("当前成本")
+    @ApiModelProperty("操作价格")
     private BigDecimal cost;
 
-    @ApiModelProperty("最后更新时间")
-    private LocalDateTime updateTime;
-
-    @ApiModelProperty("创建时间")
+    @ApiModelProperty("操作时间")
     private LocalDateTime createTime;
 
     public Long getId() {
@@ -58,12 +57,19 @@ public class Asset implements Serializable {
     public void setTargetCode(String targetCode) {
         this.targetCode = targetCode;
     }
-    public Long getAccountId() {
-        return accountId;
+    public String getTargetName() {
+        return targetName;
     }
 
-    public void setAccountId(Long accountId) {
-        this.accountId = accountId;
+    public void setTargetName(String targetName) {
+        this.targetName = targetName;
+    }
+    public Integer getActionType() {
+        return actionType;
+    }
+
+    public void setActionType(Integer actionType) {
+        this.actionType = actionType;
     }
     public BigDecimal getNum() {
         return num;
@@ -79,13 +85,6 @@ public class Asset implements Serializable {
     public void setCost(BigDecimal cost) {
         this.cost = cost;
     }
-    public LocalDateTime getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(LocalDateTime updateTime) {
-        this.updateTime = updateTime;
-    }
     public LocalDateTime getCreateTime() {
         return createTime;
     }
@@ -96,13 +95,13 @@ public class Asset implements Serializable {
 
     @Override
     public String toString() {
-        return "Asset{" +
+        return "Action{" +
             "id=" + id +
             ", targetCode=" + targetCode +
-            ", accountId=" + accountId +
+            ", targetName=" + targetName +
+            ", actionType=" + actionType +
             ", num=" + num +
             ", cost=" + cost +
-            ", updateTime=" + updateTime +
             ", createTime=" + createTime +
         "}";
     }

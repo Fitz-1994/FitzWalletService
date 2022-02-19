@@ -1,16 +1,16 @@
 package org.fitz.wallet.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import org.fitz.wallet.entity.Asset;
+import org.fitz.wallet.entity.Action;
 
 /**
  * <p>
- * 持仓表 服务类
+ * 操作记录表 服务类
  * </p>
  *
  * @author fitz
  * @since 2022-02-19
  */
-public interface IAssetService extends IService<Asset> {
+public interface IActionService extends IService<Action> {
 
 }

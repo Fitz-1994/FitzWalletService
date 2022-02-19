@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.fitz.wallet</groupId>
-    <artifactId>wallet-service</artifactId>
+    <artifactId>wallet</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>wallet-query</module>
@@ -60,7 +60,12 @@
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
-                <version>3.4.3</version>
+                <version>3.5.1</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>1.6.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

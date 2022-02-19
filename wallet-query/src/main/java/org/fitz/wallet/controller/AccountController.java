@@ -10,10 +10,14 @@ import org.springframework.web.bind.annotation.RestController;
  * </p>
  *
  * @author fitz
- * @since 2021-10-12
+ * @since 2022-02-19
  */
 @RestController
 @RequestMapping("/account")
 public class AccountController {
 
+    @RequestMapping("/test")
+    public String test(){
+        return "test";
+    }
 }

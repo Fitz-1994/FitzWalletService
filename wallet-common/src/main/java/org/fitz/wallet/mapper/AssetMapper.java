@@ -9,7 +9,7 @@ import org.fitz.wallet.entity.Asset;
  * </p>
  *
  * @author fitz
- * @since 2021-10-12
+ * @since 2022-02-19
  */
 public interface AssetMapper extends BaseMapper<Asset> {
 

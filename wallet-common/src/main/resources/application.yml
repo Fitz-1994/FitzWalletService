@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql:// rm-bp126x51o14agv1b27o.mysql.rds.aliyuncs.com:3306/wallet
+    username: root
+    password: Fitz@2022
+
+
+logging:
+  level:
+    org.fitz.wallet: debug
+mybatis-plus:
+    mapper-locations: classpath:mappings/*.xml
