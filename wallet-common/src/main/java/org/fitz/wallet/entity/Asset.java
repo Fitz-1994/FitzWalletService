@@ -7,7 +7,7 @@ import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  * <p>
@@ -39,10 +39,10 @@ public class Asset implements Serializable {
     private BigDecimal cost;
 
     @ApiModelProperty("最后更新时间")
-    private LocalDateTime updateTime;
+    private Date updateTime;
 
     @ApiModelProperty("创建时间")
-    private LocalDateTime createTime;
+    private Date createTime;
 
     public Long getId() {
         return id;
@@ -72,6 +72,7 @@ public class Asset implements Serializable {
     public void setNum(BigDecimal num) {
         this.num = num;
     }
+
     public BigDecimal getCost() {
         return cost;
     }
@@ -79,18 +80,20 @@ public class Asset implements Serializable {
     public void setCost(BigDecimal cost) {
         this.cost = cost;
     }
-    public LocalDateTime getUpdateTime() {
+
+    public Date getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(LocalDateTime updateTime) {
+    public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
-    public LocalDateTime getCreateTime() {
+
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(LocalDateTime createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 

@@ -2,6 +2,7 @@ package org.fitz.wallet.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import org.fitz.wallet.entity.Action;
+import org.fitz.wallet.entity.Asset;
 
 /**
  * <p>
@@ -13,4 +14,5 @@ import org.fitz.wallet.entity.Action;
  */
 public interface IActionService extends IService<Action> {
 
+    void buy(Asset asset);
 }
