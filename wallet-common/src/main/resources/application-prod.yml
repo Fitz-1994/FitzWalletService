@@ -8,6 +8,4 @@ spring:
 
 logging:
   level:
-    org.fitz.wallet: debug
-mybatis-plus:
-  mapper-locations: classpath:mappings/*.xml
+    org.fitz.wallet: info

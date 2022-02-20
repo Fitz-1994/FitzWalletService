@@ -3,6 +3,8 @@ package org.fitz.wallet.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.fitz.wallet.entity.Asset;
 
+import java.util.List;
+
 /**
  * <p>
  * 持仓表 Mapper 接口
@@ -13,4 +15,5 @@ import org.fitz.wallet.entity.Asset;
  */
 public interface AssetMapper extends BaseMapper<Asset> {
 
+    List<Asset> queryByAccountId(int accountId);
 }

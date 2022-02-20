@@ -13,4 +13,5 @@ import org.fitz.wallet.entity.Account;
  */
 public interface AccountMapper extends BaseMapper<Account> {
 
+    Account queryById(int id);
 }

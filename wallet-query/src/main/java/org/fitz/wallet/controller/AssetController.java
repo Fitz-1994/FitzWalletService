@@ -1,9 +1,11 @@
 package org.fitz.wallet.controller;
 
 
+import org.fitz.wallet.dto.AssetDto;
 import org.fitz.wallet.service.IAssetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigDecimal;
@@ -31,5 +33,21 @@ public class AssetController {
     @RequestMapping
     public BigDecimal assetSum() {
         return assetService.assetSum();
+    }
+
+    /**
+     * 根据账户id查询该账户下的所有资产  及   账户信息
+     *
+     * @param accountId
+     * @return
+     */
+    @RequestMapping("queryByAccountId")
+    public AssetDto queryAsset(@RequestParam int accountId) {
+        // 参数校验
+        if (accountId < 0) {
+            return null;
+        }
+        //参数传递
+        return assetService.queryByAccountId(accountId);
     }
 }

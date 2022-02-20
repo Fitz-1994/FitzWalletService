@@ -1,13 +1,17 @@
 package org.fitz.wallet.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.fitz.wallet.dto.AssetDto;
+import org.fitz.wallet.entity.Account;
 import org.fitz.wallet.entity.Asset;
+import org.fitz.wallet.mapper.AccountMapper;
 import org.fitz.wallet.mapper.AssetMapper;
 import org.fitz.wallet.service.IAssetService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * <p>
@@ -21,6 +25,8 @@ import java.math.BigDecimal;
 public class AssetServiceImpl extends ServiceImpl<AssetMapper, Asset> implements IAssetService {
     @Resource
     private AssetMapper assetMapper;
+    @Resource
+    private AccountMapper accountMapper;
 
     @Override
     public BigDecimal assetSum() {
@@ -29,5 +35,16 @@ public class AssetServiceImpl extends ServiceImpl<AssetMapper, Asset> implements
 
         //////////////////
         return BigDecimal.ZERO;
+    }
+
+    @Override
+    public AssetDto queryByAccountId(int accountId) {
+        Account account = accountMapper.queryById(accountId);
+        List<Asset> assetList = assetMapper.queryByAccountId(accountId);
+
+        AssetDto assetDto = new AssetDto();
+        assetDto.setAccount(account);
+        assetDto.setAssets(assetList);
+        return assetDto;
     }
 }

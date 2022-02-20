@@ -2,4 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.fitz.wallet.mapper.AssetMapper">
 
+    <resultMap id="assetMap" type="org.fitz.wallet.entity.Asset">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <id column="target_code" jdbcType="BIGINT" property="targetCode"/>
+        <id column="account_id" jdbcType="BIGINT" property="accountId"/>
+        <id column="num" jdbcType="DECIMAL" property="num"/>
+        <id column="cost" jdbcType="DECIMAL" property="cost"/>
+        <id column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <id column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
+    <select id="queryByAccountId" resultMap="assetMap">
+        select id, target_code, account_id, num, cost, update_time, create_time
+        from asset
+        where account_id = #{accountId}
+    </select>
 </mapper>

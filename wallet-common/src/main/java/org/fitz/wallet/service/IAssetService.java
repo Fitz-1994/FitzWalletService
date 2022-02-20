@@ -1,6 +1,7 @@
 package org.fitz.wallet.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.fitz.wallet.dto.AssetDto;
 import org.fitz.wallet.entity.Asset;
 
 import java.math.BigDecimal;
@@ -21,4 +22,11 @@ public interface IAssetService extends IService<Asset> {
      * @return
      */
     BigDecimal assetSum();
+
+    /**
+     * 根据账户id查询该账户下的所有资产 及 账号信息
+     *
+     * @return
+     */
+    AssetDto queryByAccountId(int accountId);
 }
